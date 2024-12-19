@@ -84,6 +84,8 @@ smtp_server = "smtp.example.com"
 smtp_port = 587
 username = "votre_email@example.com"
 password = "votre_mot_de_passe"
+```
+
 
 <img width="775" alt="Capture d’écran 2024-12-19 à 20 18 14" src="https://github.com/user-attachments/assets/d6acd08d-f04e-4e41-96b7-ce2386cb5be4" />
 
