@@ -1,0 +1,38 @@
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad, unpad
+# from Crypto.Random import get_random_bytes
+
+
+
+def encrypt_msg(msg, key):
+    cipher = AES.new(key, AES.MODE_CBC)
+    ciphertext = cipher.encrypt(pad(msg.encode(), AES.block_size))
+    return b"".join([cipher.iv, ciphertext])
+
+def decrypt_message(text, key):
+    iv = text[:16]
+    cipher = AES.new(key, AES.MODE_CBC, iv)
+    plaintext = unpad(cipher.decrypt(text[16:]), AES.block_size).decode()
+    return plaintext
+# print(key)
+# msg = "hello paul the goat"
+# ciphertext = encrypt_msg(msg, key)
+# print("MESSAGE CHIFFRE: ", ciphertext)
+#
+# with open("./message.enc", "w") as m:
+#     m.write(ciphertext)
+#
+# with open("./key.bin", "w") as k:
+#     k.write(key)
+
+
+with open("./ciphered.enc", "br") as f:
+    data = f.read()
+with open("./key.bin", "rb") as f:
+    key = f.read()
+
+#key = "39bd86cbb946593404399edfc5ae2d4149d4f0b2c0ffd700cd16b099ab8d09ca"
+decrypted = decrypt_message(data, key)
+print(decrypted)
+
+print(decrypt_message(encrypt_msg("jiad", key), key))
