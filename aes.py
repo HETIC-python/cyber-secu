@@ -40,10 +40,15 @@ def decrypt_folder(folder, key):
         with open(file, "w") as f:
             f.write(decrypt_msg(data, key))
     
-folder = read_folder("/tmp/test")
-# encrypt_folder(folder, key)
-decrypt_folder(folder, key)
-print(folder)
+if __name__ == "__main__":
+    folder = read_folder("/tmp/test")
+    encrypt_folder(folder, key)
+    decrypt_folder(folder, key)
+    print(folder)
+    folder = read_folder("/tmp/test")
+    # encrypt_folder(folder, key)
+    decrypt_folder(folder, key)
+    print(folder)
 
 
 # print(key)
