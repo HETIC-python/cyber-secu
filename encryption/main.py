@@ -1,5 +1,4 @@
 import aes
-import malware
 from interface import Main
 
 def main():
