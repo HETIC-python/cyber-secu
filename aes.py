@@ -18,6 +18,7 @@ def decrypt_msg(text, key):
     key = key.encode()
     print("after encode: ", key)
     iv = text[:16]
+    print("iv: ", iv)
     cipher = AES.new(key, AES.MODE_CBC, iv)
     plaintext = unpad(cipher.decrypt(text[16:]), AES.block_size).decode()
     return plaintext
