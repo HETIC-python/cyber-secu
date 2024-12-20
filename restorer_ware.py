@@ -10,16 +10,16 @@ def decrypt_file(file_path, key):
         cipher = AES.new(key, AES.MODE_CBC, iv)
         decrypted_data = cipher.decrypt(encrypted_data)
 
-        # Suppression du padding
+        
         padding_length = decrypted_data[-1]
         decrypted_data = decrypted_data[:-padding_length]
 
-        # Sauvegarde dufichier déchiffré
+        
         decrypted_file_path = file_path.replace('.enc', '')
         with open(decrypted_file_path, 'wb') as f:
             f.write(decrypted_data)
 
-        # Suppression du fichier chiffré
+        
         os.remove(file_path)
 
         print(f"[SUCCESS] Fichier restauré : {decrypted_file_path}")

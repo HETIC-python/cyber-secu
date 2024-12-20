@@ -26,7 +26,7 @@ def envoyer_mail(to, subject, body, filename):
                 part = MIMEBase('application', 'octet-stream')
                 part.set_payload(attachment.read())
 
-            # Encodage du fichier en Base64
+            
             encoders.encode_base64(part)
             part.add_header(
                 "Content-Disposition",
