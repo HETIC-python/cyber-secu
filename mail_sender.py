@@ -7,8 +7,8 @@ from email import encoders
 def envoyer_mail(to, subject, body, filename):
     smtp_server = "smtp.gmail.com"
     smtp_port = 587  
-    username = "__________"
-    password = "__________" 
+    username = "rdout2022@gmail.com"
+    password = "stmn hrtv wrfq yliv" 
 
     msg = MIMEMultipart()
     msg['From'] = username
@@ -26,7 +26,7 @@ def envoyer_mail(to, subject, body, filename):
                 part = MIMEBase('application', 'octet-stream')
                 part.set_payload(attachment.read())
 
-            # Encodage du fichier en Base64
+            
             encoders.encode_base64(part)
             part.add_header(
                 "Content-Disposition",
