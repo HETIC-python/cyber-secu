@@ -1,5 +1,5 @@
-import aes
-from interface import Main
+import encryption.aes as aes
+from encryption.interface import Main
 
 def main():
     folder = aes.read_folder("./dossier_confidentiel")

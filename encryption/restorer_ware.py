@@ -1,10 +1,9 @@
 from Crypto.Cipher import AES
-import aes
+import encryption.aes as aes
 
 def restore_files_in_directory(directory,key):
-    print("key: ", key, aes.key)
     folder = aes.read_folder(directory)
-    aes.decrypt_folder(folder,key ) 
+    aes.decrypt_folder(folder,aes.key ) 
 
 if __name__ == "__main__":
     try:
