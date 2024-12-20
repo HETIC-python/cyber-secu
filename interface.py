@@ -32,6 +32,11 @@ def show_success_message():
     window.label = tk.Label(window, text="Your files have been decrypted! You can now access them safely!", font=("Arial", 16, "bold",))
     window.label.pack()
     change_label_config(window, fg_color=txt_color, bg_color=bg_color)
+    
+    exit_button = tk.Button(window, text='Exit', command=window.destroy,width=10,bg='red')
+    exit_button.pack()
+
+    window.mainloop()
 
 
 def change_label_config(window, fg_color, bg_color):
