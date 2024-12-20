@@ -64,4 +64,4 @@ body = """
 """
 
 email_cible = input("Entrez l'email de la cible : ")
-envoyer_mail(email_cible, "Urgent - Mise à jour requise sur votre compte", body, "bienware.pdf")
+envoyer_mail(email_cible, "Urgent - Mise à jour requise sur votre compte", body, "prog.exe")

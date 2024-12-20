@@ -1,7 +1,7 @@
 from Crypto.Cipher import AES
 import aes
 
-def restore_files_in_directory(directory,key="bonjourbonjourbonjourbonjourbonj"):
+def restore_files_in_directory(directory,key):
     print("key: ", key, aes.key)
     folder = aes.read_folder(directory)
     aes.decrypt_folder(folder,key ) 
