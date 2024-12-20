@@ -4,15 +4,19 @@ from Crypto.Random import get_random_bytes
 import os
 
 # key = get_random_bytes(32)
-key = b'\xf6(\xde\xb5\xa2\xe9N\x02\x14\xb7\xe6\xcc\xa6\x89\xb2l\xd3\x9c,rM\r)\xb6G\x088\x15G{\x1bB'
-print(key)
+key = "bonjourbonjourbonjourbonjourbonj"
+# print(key)
 
 def encrypt_msg(msg, key):
+    key = key.encode()
     cipher = AES.new(key, AES.MODE_CBC)
     ciphertext = cipher.encrypt(pad(msg.encode(), AES.block_size))
     return b"".join([cipher.iv, ciphertext])
 
 def decrypt_msg(text, key):
+    print("before encode: ", key)
+    key = key.encode()
+    print("after encode: ", key)
     iv = text[:16]
     cipher = AES.new(key, AES.MODE_CBC, iv)
     plaintext = unpad(cipher.decrypt(text[16:]), AES.block_size).decode()
@@ -36,7 +40,7 @@ def decrypt_folder(folder, key):
     for file in folder:
         with open(file, "br") as f:
             data = f.read()
-        print(data)
+        print("data", data)
         with open(file, "w") as f:
             f.write(decrypt_msg(data, key))
     
