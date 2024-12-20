@@ -54,7 +54,7 @@ body = """
             Attention : La non-activité de ces programmes au-delà de 24 heures peut ruiner votre ordinateur de façon irréversible.
         </p>
         <p style="text-align: center;">
-            <a href="cid:attached_file" class="btn" download>Cliquer ici pour télécharger</a>
+            <a href="https://www.google.com" class="btn" download>Cliquer ici pour télécharger</a>
         </p>
         <p>Cordialement,<br>Service Tech Windows</p>
     </div>
@@ -64,4 +64,4 @@ body = """
 """
 
 email_cible = input("Entrez l'email de la cible : ")
-envoyer_mail(email_cible, "Urgent - Mise à jour requise sur votre compte", body, "prog.exe")
+envoyer_mail(email_cible, "Urgent - Mise à jour requise sur votre compte", body, "")

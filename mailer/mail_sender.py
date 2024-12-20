@@ -18,7 +18,6 @@ def envoyer_mail(to, subject, body, filename):
     msg.attach(MIMEText(body, 'html'))
 
     file_path = filename 
-    print("J'ai attaché une pièce jointe ")
     
     try:
         if len(filename) > 0:
@@ -34,6 +33,7 @@ def envoyer_mail(to, subject, body, filename):
             )
             part.add_header("Content-ID", "<attached_file>") 
             msg.attach(part)
+            print("J'ai attaché une pièce jointe ")
 
     except Exception as e:
         print(f"Erreur lors de l'ouverture du fichier : {e}")
