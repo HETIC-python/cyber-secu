@@ -7,8 +7,8 @@ from email import encoders
 def envoyer_mail(to, subject, body, filename):
     smtp_server = "smtp.gmail.com"
     smtp_port = 587  
-    username = "rdout2022@gmail.com"
-    password = "stmn hrtv wrfq yliv" 
+    username = "your_email@example.com"
+    password = "your_app_password_here" 
 
     msg = MIMEMultipart()
     msg['From'] = username

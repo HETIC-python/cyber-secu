@@ -133,3 +133,6 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# Configuration files (contains sensitive information)
+config.py

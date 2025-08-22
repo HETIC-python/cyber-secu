@@ -1,7 +1,31 @@
 # Ransomware Simulation
 
 Ce projet illustre un scénario simplifié de simulation de ransomware, où un fichier exécutable unique effectue toutes les actions : chiffrement, demande de rançon et décryptage après paiement.  
-**ATTENTION** : Ce projet est exclusivement destiné à des fins éducatives et de sensibilisation à la cybersécurité.
+**⚠️ ATTENTION** : Ce projet est exclusivement destiné à des fins éducatives et de sensibilisation à la cybersécurité.
+
+**🔒 SÉCURITÉ** : Toutes les informations sensibles ont été remplacées par des exemples. Vous devez configurer vos propres paramètres avant utilisation.
+
+---
+
+## **Configuration requise**
+
+### 1. **Copier le fichier de configuration**
+```bash
+cp config_template.py config.py
+```
+
+### 2. **Modifier config.py avec vos paramètres**
+- Utilisez uniquement des comptes email de test
+- Utilisez des mots de passe d'application Gmail (pas de mots de passe réguliers)
+- Remplacez les URLs d'exemple par vos propres serveurs de test
+- **JAMAIS** d'informations de production
+
+### 3. **Modifications requises dans les fichiers**
+Après avoir configuré `config.py`, modifiez les fichiers suivants pour importer votre configuration :
+- `mailer/mail_sender.py`
+- `mailer/malwaremail.py`
+- `mailer/malware.py`
+- `mailer/init_mail.py`
 
 ---
 
@@ -39,10 +63,13 @@ Ce projet illustre un scénario simplifié de simulation de ransomware, où un f
 ---
 
 ## **Instructions d'utilisation**
+
+**⚠️ IMPORTANT** : Vous devez d'abord suivre les étapes de configuration ci-dessus avant d'utiliser le projet.
+
 1. **Configuration initiale** :
-   - Remplissez les variables dans `init_mail.py` :
-     - `email_cible` : Adresse email de la victime.
-     - `username` et `password` : Informations d'authentification SMTP pour envoyer l'email.
+   - Copiez `config_template.py` vers `config.py`
+   - Remplissez vos propres paramètres dans `config.py`
+   - Modifiez les fichiers dans le dossier `mailer/` pour utiliser votre configuration
 
 2. **Exécution des scripts** :
    - **Étape 1** : Exécutez `init_mail.py` pour envoyer l'email initial contenant le lien vers `bienvenue.exe`.
@@ -51,9 +78,14 @@ Ce projet illustre un scénario simplifié de simulation de ransomware, où un f
      - Une interface utilisateur demande un paiement en crypto-monnaie.
      - Après le paiement, les fichiers sont déchiffrés automatiquement.
 
+**⚠️ RAPPEL DE SÉCURITÉ** :
+- Utilisez uniquement des emails de test que vous contrôlez
+- Informez toujours les participants qu'il s'agit d'une simulation
+- Ne jamais utiliser sur des systèmes de production
+
 ---
 
-## **Exemple de configuration SMTP**
+## **Exemple de configuration**
 Dans `init_mail.py`, configurez les paramètres SMTP comme suit :
 ```python
 smtp_server = "smtp.example.com"
