@@ -91,4 +91,4 @@ Dans `init_mail.py`, configurez les paramètres SMTP comme suit :
 smtp_server = "smtp.example.com"
 smtp_port = 587
 username = "votre_email@example.com"
-password = "votre_mot_de_passe"
+EMAIL_PASSWORD = "your_app_password_here"
